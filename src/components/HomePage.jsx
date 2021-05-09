@@ -1,8 +1,5 @@
-//import React from 'react';
 
-//import { Fragment } from "react";
-
-const MyFirstComponent = (props) => {
+const HomePage = (props) => {
     return (
         <div className="test-component">
             <h2>React the Best:)</h2>
@@ -12,4 +9,4 @@ const MyFirstComponent = (props) => {
     );
 }
 
-export default MyFirstComponent;
+export default HomePage;
