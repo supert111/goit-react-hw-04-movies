@@ -6,13 +6,14 @@ import AppBar from './components/AppBar/AppBar';
 import routes from './routes';
 
 const HomePageViews = lazy(() =>
-  import('./views/HomePageViews' /* webpackChunkName: "home-view" */),
+    import('./views/HomePageViews' /* webpackChunkName: "home-view" */),
 );
 
+// const MovieListView = lazy(() => 
+//     import('./views/MovieListView' /* webpackChunkName: "movie-details-view" */),
+// )
+
 function App () {
-    // const user = {
-    //     name: 'Iryna',
-    // };
 
     return (
         <>
@@ -22,9 +23,9 @@ function App () {
           <Switch>
             <Route exact path={routes.home} component={HomePageViews} />
             {/* <Route path={routes.authors} component={AuthorsView} />
-            <Route exact path={routes.books} component={BooksView} />
-            <Route path={routes.bookDetails} component={BookDetailsView} />
-            <Route component={NotFoundView} /> */}
+            <Route exact path={routes.books} component={BooksView} /> */}
+            {/* <Route path={routes.movieDetails} component={MovieDetailsView} /> */}
+            {/* <Route component={NotFoundView} /> */}
           </Switch>
         </Suspense>
       </>

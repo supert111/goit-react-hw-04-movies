@@ -14,9 +14,9 @@ const Navigation = () => {
         Home
       </NavLink>
       {/* <NavLink
-        to={routes.authors}
-        className="nav-link"
-        activeClassName="active"
+        to={routes.movie}
+        // className="nav-link"
+        // activeClassName="active"
       >
         Movies
       </NavLink> */}
