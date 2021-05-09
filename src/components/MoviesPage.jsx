@@ -1,8 +1,7 @@
-//import React from "react";
+
 import { Component } from "react";
 
-//class MySecondComponent extends React.Component {
-class MySecondComponent extends Component {
+class MoviesPage extends Component {
     render () {
         return (
             <div className="second-component">
@@ -14,4 +13,4 @@ class MySecondComponent extends Component {
     }
 }
 
-export default MySecondComponent;
+export default MoviesPage;
