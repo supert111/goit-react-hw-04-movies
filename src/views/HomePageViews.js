@@ -1,5 +1,7 @@
 import { Component } from 'react';
 import API from '../api/data.api';
+import MovieListView from './MovieListView';
+
 
 class HomePageViews extends Component {
     state = {
@@ -20,11 +22,7 @@ class HomePageViews extends Component {
         return (
             <div>
                 <h1> Trending today </h1>
-                <ul>
-                    {popularFilms.map(film => ( 
-                        <li key={film.id}> {film.title} </li>
-                    ))}
-                </ul>  
+                <MovieListView trendFilms={popularFilms}/>
             </div>
         )
     }
