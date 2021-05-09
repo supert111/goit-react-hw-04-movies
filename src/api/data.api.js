@@ -4,16 +4,12 @@ const BASE_URL = 'https://api.themoviedb.org/';
 const  API_KEY = 'e0864e234ad59915a65f6e683712555d';
 
 const API = {
-    fetchPopularFilms (page= '') {
+    fetchPopularFilms () {
         return axios
             .get (
-                `${BASE_URL}/3/trending/movie/week?api_key=${API_KEY}&page=${page}`,
+                `${BASE_URL}/3/trending/movie/day?api_key=${API_KEY}`,
             )
-            .then(response => {
-                if(response.ok) {
-                    return response.json()
-                }
-            })
+            .then(response => response.data.results)
             .catch(() => console.error('no popular'));
     },
 
