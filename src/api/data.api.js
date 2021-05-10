@@ -13,18 +13,15 @@ const API = {
             .catch(() => console.error('no popular'));
     },
 
-    // fetchFilmByQuery (page = '', searchQuery = '') {  
-    //     return axios
-    //         .get (
-    //             `${BASE_URL}/3/search/movie?api_key=${API_KEY}&query=${searchQuery}&page=${page}`,
-    //         )
-    //         .then(response => {
-    //             if(response.ok) {
-    //                 return response.json()
-    //             }
-    //         })
-    //         .catch(() => console.error('no search movie'));
-    // },
+    fetchFilmByQuery (searchQuery = '') {  
+        return axios
+            .get (
+                `${BASE_URL}/3/search/movie?api_key=${API_KEY}&query=${searchQuery}`,
+            )
+            // .then(response => console.log(response.data))
+            .then(response => response.data.results)
+            // .catch(() => console.error('no search movie'));
+    },
 
     // fetchGanres () {                                                  
     //     return axios
