@@ -1,7 +1,7 @@
 
 const routes = {
     home: '/',
-    // movies: '/movies',
+    movies: '/movies',
     // movieDetails: '/movies/:movieId',   
 }
 

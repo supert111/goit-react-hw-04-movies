@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import routes from '../routes';
+import routes from '../../routes';
+
 
 const Navigation = () => {
   return (
@@ -8,18 +9,18 @@ const Navigation = () => {
       <NavLink
         exact
         to={routes.home}
-        // className="nav-link"
-        // activeClassName="active"
+        className="nav_link"
+        activeClassName="nav_link_active"
       >
         Home
       </NavLink>
-      {/* <NavLink
-        to={routes.movie}
-        // className="nav-link"
-        // activeClassName="active"
+      <NavLink
+        to={routes.movies}
+        className="nav_link"
+        activeClassName="nav_link_active"
       >
         Movies
-      </NavLink> */}
+      </NavLink>
     </nav>
   );
 };
