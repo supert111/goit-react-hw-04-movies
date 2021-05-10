@@ -1,11 +1,11 @@
-import { Link, withRouter } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom';
 
-const MovieListView = ({ trendFilms, match }) => {
+const HomeMovieListView = ({ trendFilms }) => {
     return (
         <ul>
         {trendFilms.map(film => ( 
             <li key={film.id}> 
-                <Link to={`${match.url}/${film.id}`}>
+                <Link to={`/movies/${film.id}`}>
                     {film.title} 
                 </Link>
             </li> 
@@ -14,4 +14,4 @@ const MovieListView = ({ trendFilms, match }) => {
     )
 }
 
-export default withRouter(MovieListView);
+export default withRouter(HomeMovieListView);

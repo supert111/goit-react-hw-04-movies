@@ -16,13 +16,20 @@ const API = {
     fetchFilmByQuery (searchQuery = '') {  
         return axios
             .get (
-                `${BASE_URL}/3/search/movie?api_key=${API_KEY}&query=${searchQuery}`,
+                `${BASE_URL}3/search/movie?api_key=${API_KEY}&language=en-US&query=${searchQuery}`,
             )
-            // .then(response => console.log(response.data))
             .then(response => response.data.results)
-            // .catch(() => console.error('no search movie'));
+            .catch(() => console.error('no search movie'));
     },
 
+    fetchFilmById (movie_id = '') {
+        return axios
+            .get (
+                `${BASE_URL}3/movie/${movie_id}?api_key=${API_KEY}`,
+            )
+            .then(response => response.data)
+            .catch(() => console.error('current film is missing'));
+    },
     // fetchGanres () {                                                  
     //     return axios
     //         .get (
@@ -34,19 +41,6 @@ const API = {
     //             }
     //         })
     //         .catch(() => console.error('no ganres'));
-    // },
-
-    // fetchFilmById (movieId = '') {
-    //     return axios
-    //         .get (
-    //             `${BASE_URL}/3/genre/movie/list?api_key=${API_KEY}`,
-    //         )
-    //         .then(response => {
-    //             if(response.ok) {
-    //                 return response.json()
-    //             }
-    //         })
-    //         .catch(() => console.error('current film is missing'));
     // },
 };
 
