@@ -44,7 +44,7 @@ class MovieDetailsPageView extends Component {
                             <img src={API.posterimgpath + poster_path} alt={title}/>
                             <div>
                                 <h1>{title}</h1>
-                                <p>User Score: {vote_average}%</p> 
+                                <p>User Score: {vote_average * 10}%</p> 
                                 <h2>Overview</h2>
                                 <p>{overview}</p>
                                 <h3>Genres</h3> 
