@@ -1,12 +1,13 @@
 //import PropTypes from 'prop-types';
 import { Component } from 'react';
 import API from '../api/data.api';
+import MoviesListView from './MoviesListView';
 import Searchbar from '../components/Searchbar/Searchbar';
 
 class MoviesPageViews extends Component {
-    state = { query: '' };
+    state = { query: '', movies: [], };
 
-    componentDidUpdate(prevState) {
+    componentDidUpdate(prevProps,prevState) {
         if(prevState.query !== this.state.query) {
             this.fetchMovie();
         }
@@ -17,7 +18,7 @@ class MoviesPageViews extends Component {
         API.fetchFilmByQuery(query)
         .then(results => {
             console.log(results)
-            this.setState({ query: results })
+            this.setState({ query: query, movies: results })
         })
     }
 
@@ -28,9 +29,12 @@ class MoviesPageViews extends Component {
     }
 
     render () {
+        const { movies } = this.state;
         return (
             <>
-                <Searchbar onSubmit={this.onChangeQuery}/>
+                <Searchbar onSubmit={this.onChangeQuery} />
+                <MoviesListView movies={movies} />   
+                                           
             </>
         )
     }
