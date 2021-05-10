@@ -42,6 +42,7 @@ const API = {
     //         })
     //         .catch(() => console.error('no ganres'));
     // },
+    posterimgpath: `https://image.tmdb.org/t/p/w342/`,
 };
 
 export default API;  

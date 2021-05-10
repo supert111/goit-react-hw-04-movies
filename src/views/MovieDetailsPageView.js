@@ -30,30 +30,42 @@ class MovieDetailsPageView extends Component {
             vote_average,
             overview,
             // release_date,
-            // genres,
-          } = this.state;
-        console.log(this.state)
-        // const { movieId } = this.props.match.params.movieId; 
-        // console.log(movieId);
+            genres,
+          } = this.state.movieId;
+
         return (
-            <section>
-                <button className='' type="button" >
-                    Go back
-                </button>
-                <img src={poster_path} alt={title}/>
-                <div>
-                    <h1>{title}</h1>
-                    <p>User Score: {vote_average}%</p> 
-                    <h2>Overview</h2>
-                    <p>{overview}</p>
-                    <h3>Genres</h3> 
-                    {/* <ul>
-                        {genres.map(genre => (
-                            <li key={genre.id}>{genre.name}</li>
-                        ))}
-                    </ul>   */}
-                </div>
-            </section>
+            <>
+                <section>
+                    <button className='' type="button" >
+                        🡸 Go back
+                    </button>
+                    {this.state.movieId.length !== 0 && 
+                        <>
+                            <img src={API.posterimgpath + poster_path} alt={title}/>
+                            <div>
+                                <h1>{title}</h1>
+                                <p>User Score: {vote_average}%</p> 
+                                <h2>Overview</h2>
+                                <p>{overview}</p>
+                                <h3>Genres</h3> 
+                                <ul>
+                                    {genres.map(genre => (
+                                        <li key={genre.id}>{genre.name}</li>
+                                    ))}
+                                </ul>  
+                            </div>
+                        </>
+                    }
+                </section>
+
+                <section>
+                    <p>Additional information</p>
+                    <ul>
+                        <li>Cast</li>
+                        <li>Reviews</li>
+                    </ul>
+                </section>
+            </>
         )
     }
 }
