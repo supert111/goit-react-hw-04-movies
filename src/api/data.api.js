@@ -38,6 +38,16 @@ const API = {
             .then(response => response.data)
             .catch(() => console.error('no cast'));
     },
+
+    fetchReviews (movie_id = '') {
+        return axios
+            .get (
+                `${BASE_URL}3/movie/${movie_id}/reviews?api_key=${API_KEY}`,
+            )
+            .then(response => response.data.results)
+            .catch(() => console.error('no cast'));
+    },
+
     posterimgpath: `https://image.tmdb.org/t/p/w342/`,
     profilePath: `https://image.tmdb.org/t/p/w185/`,
 };

@@ -1,0 +1,26 @@
+.button {
+    display: block;
+    border-radius: 5px;
+}
+
+.wrraper {
+    display: flex;
+}
+
+.genre {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+}
+
+.genre_name {
+    margin-right: 15px;
+}
+
+.block_movie_value {
+    padding: 0 0 0 20px;
+}
+
+.movie_poster {
+    width: 242px;
+}
