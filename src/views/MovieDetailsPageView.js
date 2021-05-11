@@ -1,9 +1,15 @@
 import { Component, lazy } from 'react';
 import { NavLink, Route } from 'react-router-dom';
+import routes from '../routes';
 import API from '../api/data.api';
+import styles from './Styles/MovieDetailsPageView.module.css';
 
 const CastMovieDetails = lazy(() =>
     import('../components/CastMovieDetails/CastMovieDetails' /* webpackChunkName: "cast-view" */),
+);
+
+const ReviewsMovieDetails = lazy(() =>
+    import('../components/ReviewsMovieDetails/ReviewsMovieDetails' /* webpackChunkName: "reviews-view" */),
 );
 
 class MovieDetailsPageView extends Component {
@@ -18,49 +24,42 @@ class MovieDetailsPageView extends Component {
             this.setState({ movieId: results})
         })
     }
-    
-
-    // handleClick (e) {
-    //     e.preventDefault();
-
-    // }
-
 
     render() {
         const {
-            // id, 
             title,
             poster_path,
             vote_average,
             overview,
-            // release_date,
+            release_date,
             genres,
           } = this.state.movieId;
           
           const { match } = this.props;
-
+        //   const yeasMovie = release_date.slice(0, 4);
+        //   console.log(yeasMovie);
         return (
             <>
                 <section>
-                    <button className='' type="button" >
+                    <button className={styles.button} type="button" >
                         🡸 Go back
                     </button>
                     {this.state.movieId.length !== 0 && 
-                        <>
-                            <img src={API.posterimgpath + poster_path} alt={title}/>
-                            <div>
-                                <h1>{title}</h1>
+                        <div className={styles.wrraper}>
+                            <img className={styles.movie_poster} src={API.posterimgpath + poster_path} alt={title}/>
+                            <div className={styles.block_movie_value}>
+                                <h1>{title} ({release_date})</h1>
                                 <p>User Score: {vote_average * 10}%</p> 
                                 <h2>Overview</h2>
                                 <p>{overview}</p>
                                 <h3>Genres</h3> 
-                                <ul>
+                                <ul className={styles.genre}>
                                     {genres.map(genre => (
-                                        <li key={genre.id}>{genre.name}</li>
+                                        <li key={genre.id} className={styles.genre_name}>{genre.name}</li>
                                     ))}
                                 </ul>  
                             </div>
-                        </>
+                        </div>
                     }
                 </section>
 
@@ -68,15 +67,15 @@ class MovieDetailsPageView extends Component {
                     <p>Additional information</p>
                     <ul>
                         <li>
-                            <NavLink to={`${match.url}/cast`} >Cast</NavLink>
+                            <NavLink to={`${match.url}/${routes.cast}`} >Cast</NavLink>
                         </li>
                         <li>
-                        <NavLink to={`${match.url}/reviews`} >Reviews</NavLink>
+                        <NavLink to={`${match.url}/${routes.reviews}`} >Reviews</NavLink>
                         </li>
                     </ul>
                 </section>
-                <Route exact path={`${match.path}/cast`} component={CastMovieDetails} /> 
-                {/* <Route path={`${match.url}/reviews`} component={BooksView} />  */}
+                <Route exact path={`${match.path}/${routes.cast}`} component={CastMovieDetails} /> 
+                <Route path={`${match.path}/${routes.reviews}`} component={ReviewsMovieDetails} /> 
             </>
         )
     }
