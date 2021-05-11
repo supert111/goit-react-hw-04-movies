@@ -30,19 +30,16 @@ const API = {
             .then(response => response.data)
             .catch(() => console.error('current film is missing'));
     },
-    // fetchGanres () {                                                  
-    //     return axios
-    //         .get (
-    //             `${BASE_URL}/3/genre/movie/list?api_key=${API_KEY}`,
-    //         )
-    //         .then(response => {
-    //             if(response.ok) {
-    //                 return response.json()
-    //             }
-    //         })
-    //         .catch(() => console.error('no ganres'));
-    // },
+    fetchCast (movie_id = '') {
+        return axios
+            .get (
+                `${BASE_URL}3/movie/${movie_id}/credits?api_key=${API_KEY}`,
+            )
+            .then(response => response.data)
+            .catch(() => console.error('no cast'));
+    },
     posterimgpath: `https://image.tmdb.org/t/p/w342/`,
+    profilePath: `https://image.tmdb.org/t/p/w185/`,
 };
 
 export default API;  

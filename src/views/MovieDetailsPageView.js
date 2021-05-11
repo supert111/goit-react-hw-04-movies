@@ -1,6 +1,10 @@
-import { Component } from 'react';
+import { Component, lazy } from 'react';
+import { NavLink, Route } from 'react-router-dom';
 import API from '../api/data.api';
 
+const CastMovieDetails = lazy(() =>
+    import('../components/CastMovieDetails/CastMovieDetails' /* webpackChunkName: "cast-view" */),
+);
 
 class MovieDetailsPageView extends Component {
     state = { 
@@ -32,6 +36,8 @@ class MovieDetailsPageView extends Component {
             // release_date,
             genres,
           } = this.state.movieId;
+          
+          const { match } = this.props;
 
         return (
             <>
@@ -61,10 +67,16 @@ class MovieDetailsPageView extends Component {
                 <section>
                     <p>Additional information</p>
                     <ul>
-                        <li>Cast</li>
-                        <li>Reviews</li>
+                        <li>
+                            <NavLink to={`${match.url}/cast`} >Cast</NavLink>
+                        </li>
+                        <li>
+                        <NavLink to={`${match.url}/reviews`} >Reviews</NavLink>
+                        </li>
                     </ul>
                 </section>
+                <Route exact path={`${match.path}/cast`} component={CastMovieDetails} /> 
+                {/* <Route path={`${match.url}/reviews`} component={BooksView} />  */}
             </>
         )
     }
