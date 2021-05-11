@@ -1,0 +1,13 @@
+.list {
+    list-style-type: none;
+}
+
+.actor_img {
+    max-width: 100px;
+}
+
+.marker {
+    position: absolute;
+    left: 6%;
+    font-size: larger;
+}

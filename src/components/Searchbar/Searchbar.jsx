@@ -1,6 +1,6 @@
 //import PropTypes from 'prop-types';
 import { Component } from 'react';
-//import styles from './Searchbar.module.css';
+import styles from '../Searchbar/Searchbar.module.css';
 
 class Searchbar extends Component {
     state = { query: '' };
@@ -18,7 +18,7 @@ class Searchbar extends Component {
     render () {
         return (
             <>
-                <form onSubmit={this.handleSubmit} className="">
+                <form onSubmit={this.handleSubmit} className={styles.form}>
                     <input
                         className=""
                         type="text"
