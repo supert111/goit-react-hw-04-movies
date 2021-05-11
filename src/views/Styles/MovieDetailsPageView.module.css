@@ -24,3 +24,9 @@
 .movie_poster {
     width: 242px;
 }
+
+.section {
+    border-bottom: inset;
+    border-width: medium;
+    padding: 0 0 10px; 
+}

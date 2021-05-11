@@ -36,11 +36,10 @@ class MovieDetailsPageView extends Component {
           } = this.state.movieId;
           
           const { match } = this.props;
-        //   const yeasMovie = release_date.slice(0, 4);
-        //   console.log(yeasMovie);
+          const yeasMovie = Number.parseInt(release_date);
         return (
             <>
-                <section>
+                <section className={styles.section}>
                     <button className={styles.button} type="button" >
                         🡸 Go back
                     </button>
@@ -48,7 +47,7 @@ class MovieDetailsPageView extends Component {
                         <div className={styles.wrraper}>
                             <img className={styles.movie_poster} src={API.posterimgpath + poster_path} alt={title}/>
                             <div className={styles.block_movie_value}>
-                                <h1>{title} ({release_date})</h1>
+                                <h1>{title} ({yeasMovie})</h1>
                                 <p>User Score: {vote_average * 10}%</p> 
                                 <h2>Overview</h2>
                                 <p>{overview}</p>
@@ -63,7 +62,7 @@ class MovieDetailsPageView extends Component {
                     }
                 </section>
 
-                <section>
+                <section className={styles.section}>
                     <p>Additional information</p>
                     <ul>
                         <li>

@@ -1,7 +1,6 @@
 import React, { Suspense, lazy } from 'react';
 import { Route, Switch } from 'react-router-dom';
 
-// import MoviesPage from './components/MoviesPage';
 import AppBar from './components/AppBar/AppBar';
 import routes from './routes';
 
@@ -16,6 +15,10 @@ const MoviesPageViews = lazy(() =>
 const MovieDetailsPageView = lazy(() => 
     import('./views/MovieDetailsPageView' /* webpackChunkName: "movies-details-view" */),
 )
+
+// const MoviesListView = lazy(() => 
+//     import('./views/MoviesListView' /* webpackChunkName: "movies-seach-view" */),
+// )
 
 function App () {
 
@@ -33,15 +36,7 @@ function App () {
           </Switch>
         </Suspense>
       </>
-
-        // <AppBar />
-        // <HomePage jkhkj={user} />
-        // <MoviesPage user={user} />
-        // {/* <MovieDetailsPage /> */}
-        // {/* <Cast />
-        // <Reviews /> */}
-
-
     );
 }
+
 export default App;

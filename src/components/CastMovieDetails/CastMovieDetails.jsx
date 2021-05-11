@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import API from '../../api/data.api';
+import styles from '../CastMovieDetails/CastMovieDetails.module.css';
 
 class CastMovieDetails extends Component {
     state = {
@@ -20,9 +21,9 @@ class CastMovieDetails extends Component {
             <ul>
                 {this.state.cast.length !== 0 &&          
                     cast.map(actor => (
-                        <li key={actor.id}> 
-                            <img src={API.profilePath + actor.profile_path} alt={actor.name} />
-                            <p>{actor.name}</p>
+                        <li key={actor.id} className={styles.list}> 
+                            <img className={styles.actor_img} src={API.profilePath + actor.profile_path} alt={actor.name} />
+                            <p><span className={styles.marker}>•</span>{actor.name}</p>
                             <p>Character: {actor.character}</p>
                         </li>
                     ))

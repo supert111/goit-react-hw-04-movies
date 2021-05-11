@@ -1,5 +1,7 @@
 //import PropTypes from 'prop-types';
 import { Component } from 'react';
+// import { Route } from 'react-router-dom';
+// import routes from '../routes';
 import API from '../api/data.api';
 import MoviesListView from './MoviesListView';
 import Searchbar from '../components/Searchbar/Searchbar';
@@ -17,7 +19,6 @@ class MoviesPageViews extends Component {
         const { query } = this.state;
         API.fetchFilmByQuery(query)
         .then(results => {
-            console.log(results)
             this.setState({ query: query, movies: results })
         })
     }
@@ -29,13 +30,19 @@ class MoviesPageViews extends Component {
     }
 
     render () {
-        const { movies } = this.state;
+        const { movies, query } = this.state;
+        console.log(query);
         return (
             <>
                 <Searchbar onSubmit={this.onChangeQuery} />
-                <MoviesListView movies={movies} />   
-                                           
-            </>
+                <MoviesListView movies={movies} /> 
+                {/* <Route path={`${routes.movies}?query=${query}`} component={MoviesListView} />  */}
+                 
+                  
+{/*             
+                <>
+                </> */}
+            </>                         
         )
     }
 }
