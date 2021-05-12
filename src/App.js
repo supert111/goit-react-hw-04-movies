@@ -17,7 +17,7 @@ const MovieDetailsPageView = lazy(() =>
 );
 
 const NotFoundView = lazy(() => 
-    import('./views/NotFoundView' /* webpackChunkName: "error-view */)
+    import('./views/NotFoundView' /* webpackChunkName: "page-404-view" */)
 );
 
 function App () {
