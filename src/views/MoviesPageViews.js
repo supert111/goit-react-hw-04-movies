@@ -1,9 +1,6 @@
-//import PropTypes from 'prop-types';
 import { Component } from 'react';
-// import { Route } from 'react-router-dom';
-// import routes from '../routes';
 import API from '../api/data.api';
-import MoviesListView from './MoviesListView';
+import MoviesListView from '../components/MoviesListView/MoviesListView';
 import Searchbar from '../components/Searchbar/Searchbar';
 
 class MoviesPageViews extends Component {
@@ -27,6 +24,10 @@ class MoviesPageViews extends Component {
         this.setState({
             query: seachQuery,
         })
+        this.props.history.push({
+            pathname: this.props.location.pathname,
+            search: `query=${seachQuery}`,
+          });
     }
 
     render () {
@@ -35,20 +36,10 @@ class MoviesPageViews extends Component {
         return (
             <>
                 <Searchbar onSubmit={this.onChangeQuery} />
-                <MoviesListView movies={movies} /> 
-                {/* <Route path={`${routes.movies}?query=${query}`} component={MoviesListView} />  */}
-                 
-                  
-{/*             
-                <>
-                </> */}
+                {movies && <MoviesListView movies={movies} />} 
             </>                         
         )
     }
 }
-
-// MoviesPageViews.propTypes = {
-//     onSubmit: PropTypes.func.isRequired,
-// }
 
 export default MoviesPageViews;

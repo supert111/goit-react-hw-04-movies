@@ -1,6 +1,6 @@
 import { Component } from 'react';
 import API from '../api/data.api';
-import MoviesListView from './MoviesListView';
+import MoviesListView from '../components/MoviesListView/MoviesListView';
 
 
 class HomePageViews extends Component {

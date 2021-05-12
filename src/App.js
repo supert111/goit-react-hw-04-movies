@@ -14,11 +14,11 @@ const MoviesPageViews = lazy(() =>
 
 const MovieDetailsPageView = lazy(() => 
     import('./views/MovieDetailsPageView' /* webpackChunkName: "movies-details-view" */),
-)
+);
 
-// const MoviesListView = lazy(() => 
-//     import('./views/MoviesListView' /* webpackChunkName: "movies-seach-view" */),
-// )
+const NotFoundView = lazy(() => 
+    import('./views/NotFoundView' /* webpackChunkName: "error-view */)
+);
 
 function App () {
 
@@ -31,8 +31,7 @@ function App () {
             <Route exact path={routes.home} component={HomePageViews} />
             <Route path={routes.movieDetails} component={MovieDetailsPageView} />
             <Route path={routes.movies} component={MoviesPageViews} />
-            {/* <Route exact path={routes.books} component={BooksView} />  */}
-            {/* <Route component={NotFoundView} /> */}
+            <Route component={NotFoundView} />
           </Switch>
         </Suspense>
       </>
