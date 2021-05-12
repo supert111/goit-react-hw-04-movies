@@ -1,5 +1,5 @@
 import { Link, withRouter } from 'react-router-dom';
-import routes from '../routes';
+import routes from '../../routes';
 
 const MoviesListView = ({ movies, location }) => {
     return (

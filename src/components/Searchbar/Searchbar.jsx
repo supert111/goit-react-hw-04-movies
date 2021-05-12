@@ -1,4 +1,3 @@
-//import PropTypes from 'prop-types';
 import { Component } from 'react';
 import styles from '../Searchbar/Searchbar.module.css';
 
@@ -36,9 +35,5 @@ class Searchbar extends Component {
         )
     }
 }
-
-// MoviesPageViews.propTypes = {
-//     onSubmit: PropTypes.func.isRequired,
-// }
 
 export default Searchbar;
