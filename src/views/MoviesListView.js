@@ -1,12 +1,17 @@
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import routes from '../routes';
 
-const MoviesListView = ({ movies }) => {
+const MoviesListView = ({ movies, location }) => {
     return (
         <ul> 
             {movies.map(movie => (
                 <li key={movie.id}>
-                    <Link to={`${routes.movies}/${movie.id}`}>
+                    <Link to={{ 
+                        pathname: `${routes.movies}/${movie.id}`,
+                        state: {
+                            from: location,
+                        },
+                        }}>
                         {movie.title}
                     </Link> 
                 </li>
@@ -15,4 +20,4 @@ const MoviesListView = ({ movies }) => {
     )
 }
 
-export default MoviesListView;
+export default withRouter(MoviesListView);

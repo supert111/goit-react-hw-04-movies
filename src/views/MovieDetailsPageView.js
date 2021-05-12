@@ -25,6 +25,11 @@ class MovieDetailsPageView extends Component {
         })
     }
 
+    handleGoBack = () => {
+        const { location, history } = this.props;
+        history.push(location?.state?.from || routes.movies);
+    }
+
     render() {
         const {
             title,
@@ -40,7 +45,7 @@ class MovieDetailsPageView extends Component {
         return (
             <>
                 <section className={styles.section}>
-                    <button className={styles.button} type="button" >
+                    <button className={styles.button} type="button" onClick={this.handleGoBack}>
                         🡸 Go back
                     </button>
                     {this.state.movieId.length !== 0 && 
