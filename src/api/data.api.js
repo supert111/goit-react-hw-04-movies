@@ -48,8 +48,9 @@ const API = {
             .catch(() => console.error('no cast'));
     },
 
-    posterimgpath: `https://image.tmdb.org/t/p/w342/`,
-    profilePath: `https://image.tmdb.org/t/p/w185/`,
+    posterimgpath (imgUrl) {
+        return `https://image.tmdb.org/t/p/w342/${imgUrl}`
+    },
 };
 
 export default API;  

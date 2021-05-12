@@ -24,15 +24,15 @@ class MoviesPageViews extends Component {
         this.setState({
             query: seachQuery,
         })
+        
         this.props.history.push({
             pathname: this.props.location.pathname,
             search: `query=${seachQuery}`,
-          });
+        });
     }
 
     render () {
-        const { movies, query } = this.state;
-        console.log(query);
+        const { movies } = this.state;
         return (
             <>
                 <Searchbar onSubmit={this.onChangeQuery} />

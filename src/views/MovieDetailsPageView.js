@@ -40,7 +40,7 @@ class MovieDetailsPageView extends Component {
             genres,
           } = this.state.movieId;
           
-          const { match } = this.props;
+          const { match, location } = this.props;
           const yeasMovie = Number.parseInt(release_date);
         return (
             <>
@@ -50,7 +50,7 @@ class MovieDetailsPageView extends Component {
                     </button>
                     {this.state.movieId.length !== 0 && 
                         <div className={styles.wrraper}>
-                            <img className={styles.movie_poster} src={API.posterimgpath + poster_path} alt={title}/>
+                            <img className={styles.movie_poster} src={API.posterimgpath(poster_path)} alt={title}/>
                             <div className={styles.block_movie_value}>
                                 <h1>{title} ({yeasMovie})</h1>
                                 <p>User Score: {vote_average * 10}%</p> 
@@ -71,10 +71,22 @@ class MovieDetailsPageView extends Component {
                     <p>Additional information</p>
                     <ul>
                         <li>
-                            <NavLink to={`${match.url}/${routes.cast}`} >Cast</NavLink>
+                            <NavLink to={{
+                                pathname:`${match.url}/${routes.cast}`,
+                                state: {
+                                    from: location,
+                                },
+                                }} 
+                            >Cast</NavLink>
                         </li>
                         <li>
-                        <NavLink to={`${match.url}/${routes.reviews}`} >Reviews</NavLink>
+                            <NavLink to={{
+                                pathname:`${match.url}/${routes.reviews}`,
+                                state: {
+                                    from: location,
+                                },
+                                }} 
+                            >Reviews</NavLink>
                         </li>
                     </ul>
                 </section>

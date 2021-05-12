@@ -22,7 +22,7 @@ class CastMovieDetails extends Component {
                 {this.state.cast.length !== 0 &&          
                     cast.map(actor => (
                         <li key={actor.id} className={styles.list}> 
-                            <img className={styles.actor_img} src={API.profilePath + actor.profile_path} alt={actor.name} />
+                            <img className={styles.actor_img} src={API.posterimgpath(actor.profile_path)} alt={actor.name} />
                             <p><span className={styles.marker}>•</span>{actor.name}</p>
                             <p>Character: {actor.character}</p>
                         </li>
