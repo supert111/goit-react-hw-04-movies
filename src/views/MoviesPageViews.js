@@ -6,6 +6,17 @@ import Searchbar from '../components/Searchbar/Searchbar';
 class MoviesPageViews extends Component {
     state = { query: '', movies: [], };
 
+    componentDidMount() {
+        const { location } = this.props;
+        const searchParams = new URLSearchParams(location.search);
+    
+        const query = searchParams.has('query') ? searchParams.get('query') : null;
+    
+        if (query) {
+          this.setState({ query });
+        }
+    }
+
     componentDidUpdate(prevProps,prevState) {
         if(prevState.query !== this.state.query) {
             this.fetchMovie();
